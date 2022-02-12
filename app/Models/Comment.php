@@ -15,7 +15,7 @@ class comment extends Model
     }
 
 
-    protected $table = 'comment';
+    protected $table = 'comments';
     
     protected $visible = [
         'id',

@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(10)->create();
-        \App\Models\Picture::factory(10)->create();
-        \App\Models\Categories::factory(10)->create();
-        \App\Models\Comment::factory(10)->create();
+        $this->call(CategoriesSeeder::class);
+        $this->call(PictureSeeder::class);
+        $this->call(CommentSeeder::class);
     }
 }
