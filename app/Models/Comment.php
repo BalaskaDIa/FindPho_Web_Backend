@@ -4,28 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Comment;
+use App\Models\Picture;
 
-class Picture extends Model
+class comment extends Model
 {
     use HasFactory;
 
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
-    public function comment() {
-        return $this->hasMany(Comment::class);
+    public function picture() {
+        return $this->belongsTo(Picture::class);
     }
 
 
-    protected $table = 'picture';
+    protected $table = 'comment';
     
     protected $visible = [
         'id',
-        'user_id',
-        'url',
-        'coordinate',
+        'picture_id',
         'title',
         'description',
         'created_at',
@@ -33,9 +27,7 @@ class Picture extends Model
     ];
 
     protected $fillable = [
-        'user_id',
-        'url',
-        'coordinate',
+        'picture_id',
         'title',
         'description',
         'created_at',
