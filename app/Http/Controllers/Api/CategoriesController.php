@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
-use App\Http\Requests\CategoriesRequest;
-use App\Http\Requests\CategoriesUpdateRequest;
+use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use Illuminate\Support\Facades\Validator;
 
 class CategoriesController extends Controller
@@ -19,7 +19,7 @@ class CategoriesController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), (new CategoriesRequest())->rules());
+        $validator = Validator::make($request->all(), (new CategoryRequest())->rules());
         if  ($validator->fails()) {
             $errormsg = "";
             foreach ($validator->errors()->all() as $error) {
@@ -44,10 +44,10 @@ class CategoriesController extends Controller
         return response()->json($categories);
     }
 
-    public function update(CategoriesUpdateRequest $request, int $id)
+    public function update(CategoryUpdateRequest $request, int $id)
     {
         if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new CategoriesUpdateRequest())->rules());
+            $validator = Validator::make($request->all(), (new CategoryUpdateRequest())->rules());
             if ($validator->fails()) {
                 $errormsg = "";
                 foreach ($validator->errors()->all() as $error) {
@@ -69,7 +69,7 @@ class CategoriesController extends Controller
     public function destroy(int $id)
     {
         $categories = Categories::find($id);
-        if (is_null($Categories)) {
+        if (is_null($categories)) {
             return response()->json(["message" => "A megadott azonosítóval nem található kategória."], 404);
         }
         Categories::destroy($id);
