@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PictureController;
@@ -17,7 +17,7 @@ use App\Http\Controllers\Api\CommentController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::apiResource('/users', UserController::class);
 Route::resource('/picture', PictureController::class);
 Route::resource('/categories', CategoriesController::class);
 Route::resource('/comment', CommentController::class);
