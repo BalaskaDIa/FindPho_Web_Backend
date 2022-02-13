@@ -6,31 +6,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Picture;
 
-class Comment extends Model
+class Review extends Model
 {
     use HasFactory;
 
-    public function picture() {
+    public function location() {
         return $this->belongsTo(Picture::class);
     }
 
-
-    protected $table = 'comments';
+    protected $table = 'reviews';
     
     protected $visible = [
         'id',
         'picture_id',
-        'title',
-        'description',
-        'created_at',
-        'updated_at'
+        'rate'
     ];
 
     protected $fillable = [
         'picture_id',
-        'title',
-        'description',
-        'created_at',
-        'updated_at'
+        'rate'
     ];
 }
