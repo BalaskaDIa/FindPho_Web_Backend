@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PictureController;
 use App\Http\Controllers\Api\CategoriesController;
+use App\Http\Controllers\Api\CommentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,5 @@ use App\Http\Controllers\Api\CategoriesController;
 
 Route::resource('/picture', PictureController::class);
 Route::resource('/categories', CategoriesController::class);
+Route::resource('/comment', CommentController::class);
+
