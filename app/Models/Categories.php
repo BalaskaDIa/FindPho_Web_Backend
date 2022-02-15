@@ -9,6 +9,9 @@ class Categories extends Model
 {
     use HasFactory;
 
+    public function picture_cat() {
+        return $this->belongsTo(Category_Picture::class);
+    }
 
     protected $table = 'categories';
     

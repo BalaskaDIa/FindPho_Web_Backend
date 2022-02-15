@@ -18,6 +18,10 @@ class Picture extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function picture_cat2() {
+        return $this->belongsTo(Category_Picture::class);
+    }
+
 
     protected $table = 'picture';
     
