@@ -17,8 +17,7 @@ class CategoryPictureFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => 1,
-            'picture_id' => 1
+            //
         ];
     }
 }

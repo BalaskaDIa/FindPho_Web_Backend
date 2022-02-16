@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('picture_id')->constrained('picture')->onDelete('cascade');
+            $table->foreignId('picture_id')->constrained('pictures')->onDelete('cascade');
             $table->string('title');
             $table->string('description');
             $table->timestamps();

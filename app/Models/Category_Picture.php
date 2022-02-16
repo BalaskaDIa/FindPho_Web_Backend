@@ -9,15 +9,15 @@ class Category_Picture extends Model
 {
     use HasFactory;
 
-    public function picture() {
-        return $this->belongsTo(Picture::class);
+    /*public function picture() {
+        return $this->hasMany(Picture::class);
     }
 
     public function category() {
-        return $this->belongsTo(Category::class);
-    }
+        return $this->hasMany(Category::class);
+    }*/
 
-    protected $table = 'comments';
+    protected $table = 'category_picture';
     
     protected $visible = [
         'picture_id',

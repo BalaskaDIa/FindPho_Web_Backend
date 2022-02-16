@@ -14,11 +14,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('picture', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(User::class)
-            ->constrained()
-            ->onDelete('cascade');
+        Schema::create('pictures', function (Blueprint $table) {
+            $table->id("id");
+            $table->foreignIdFor(User::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('url');
             $table->string('coordinate');
             $table->string('title');
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('picture');
+        Schema::dropIfExists('pictures');
     }
 };
