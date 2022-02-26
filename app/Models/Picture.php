@@ -19,7 +19,7 @@ class Picture extends Model
     }
 
 
-    protected $table = 'picture';
+    protected $table = 'pictures';
     
     protected $visible = [
         'id',
