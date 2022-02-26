@@ -20,10 +20,7 @@
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
         "vue": "^2.6.12",
-<<<<<<< HEAD
         "vue-loader": "^15.9.7",
-=======
->>>>>>> b5d9955dac625ae66f604cad975a39d46cceb591
         "vue-template-compiler": "^2.6.12"
     }
 }
