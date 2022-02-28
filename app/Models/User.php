@@ -8,18 +8,23 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
-use App\Model\Picture;
+use App\Models\Picture;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     public function picture() {
-        return $this->hasMany(Picture::class);
+        return $this->hasMany(Picture::class)->orderBy('created_at','desc');
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
     }
 
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
     ];

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/pho/create', [App\Http\Controllers\Api\PictureController::class, 'create']);
+Route::post('/pho', [App\Http\Controllers\Api\PictureController::class, 'store']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile/{user}', [App\Http\Controllers\IndexController::class, 'index'])->name('index.show');

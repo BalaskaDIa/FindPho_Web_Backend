@@ -15,13 +15,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pictures', function (Blueprint $table) {
-            $table->id("id");
+            $table->id();
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('url');
             $table->string('coordinate');
             $table->string('title');
             $table->string('description');
+            $table->text('caption');
+            $table->string('image');
             $table->timestamps();
+            $table->index('user_id');
         });
     }
 

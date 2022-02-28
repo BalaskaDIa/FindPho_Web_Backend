@@ -10,6 +10,7 @@ use App\Models\Comment;
 class Picture extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -20,7 +21,7 @@ class Picture extends Model
 
 
     protected $table = 'pictures';
-    
+
     protected $visible = [
         'id',
         'user_id',
@@ -29,7 +30,8 @@ class Picture extends Model
         'title',
         'description',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'image'
     ];
 
     protected $fillable = [
@@ -39,6 +41,7 @@ class Picture extends Model
         'title',
         'description',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'image'
     ];
 }

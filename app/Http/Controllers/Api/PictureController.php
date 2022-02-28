@@ -8,18 +8,26 @@ use App\Models\Picture;
 use App\Http\Requests\PictureRequest;
 use App\Http\Requests\PictureUpdateRequest;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class PictureController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index()
     {
         $picture = Picture::all();
         return response()->json($picture);
     }
 
-    public function store(Request $request)
+    public function create(){
+        return view('picture.create');
+    }
+
+    public function store()
     {
-        $validator = Validator::make($request->all(), (new PictureRequest())->rules());
+        /*$validator = Validator::make($request->all(), (new PictureRequest())->rules());
         if  ($validator->fails()) {
             $errormsg = "";
             foreach ($validator->errors()->all() as $error) {
@@ -32,7 +40,24 @@ class PictureController extends Controller
         $picture = new Picture();
         $picture->fill($request->all());
         $picture->save();
-        return response()->json($picture, 201);
+        return response()->json($picture, 201);*/
+        $data = request()->validate([
+            'caption' => 'required',
+            'image' => 'required|image'
+
+        ]);
+
+        $imagePath = request('image')->store('uploads','public');
+
+        /*$image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);*/
+
+
+        auth()->user()->picture()->create([
+            'caption' => $data['caption'],
+            'image' => $imagePath
+        ]);
+
+        return redirect('/profile/' .auth()->user()->id);
     }
 
     public function show(int $id)
