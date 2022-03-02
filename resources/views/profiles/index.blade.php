@@ -13,7 +13,13 @@
                     <a href="/pho/create">Add new picture</a>
                 </div>
                 <div class="d-flex">
+                    @if($user->picture->count() == 0)
+                    <div class="pr-5"><strong>You didn't upload anything yet!</strong></div>
+                    @elseif($user->picture->count() == 1)
+                    <div class="pr-5"><strong>Nice to see that you already have {{ $user->picture->count() }} shoot!</strong></div>
+                    @else
                     <div class="pr-5"><strong>Nice to see that you already have {{ $user->picture->count() }} shoots!</strong></div>
+                    @endif
                 </div>
 
                 <div class="pt-4 font-weight-bold">
