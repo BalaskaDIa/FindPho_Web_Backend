@@ -23,3 +23,4 @@ Route::get('/pho/create', [App\Http\Controllers\Api\PictureController::class, 'c
 Route::post('/pho', [App\Http\Controllers\Api\PictureController::class, 'store']);
 
 Route::get('/profile/{user}', [App\Http\Controllers\IndexController::class, 'index'])->name('index.show');
+Route::get('/me', [App\Http\Controllers\IndexController::class, 'me'])->name('index.me');

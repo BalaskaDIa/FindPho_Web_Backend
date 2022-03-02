@@ -15,20 +15,12 @@
                 <div class="d-flex">
                     <div class="pr-5"><strong>Nice to see that you already have {{ $user->picture->count() }} shoots!</strong></div>
                 </div>
-                @if($user->profile->title != null){
+
                 <div class="pt-4 font-weight-bold">
-                    {{ $user->profile->title }}
-                </div>
-                }
-                @else{
-                <div class="pt-4 font-weight-bold">
-                    Here you can change the title.
-                </div>
-                }
-                @endif
+                    {{ $user->profile->title ?? "" }}
 
                 <div>
-                    {{ $user->profile->description }}
+                    {{ $user->profile->description ?? ""}}
                 </div>
                 <div><a href="#">{{ $user->profile->url ?? 'N/A' }}</a></div>
             </div>

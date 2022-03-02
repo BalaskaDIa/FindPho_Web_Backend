@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use app\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -28,5 +29,10 @@ class IndexController extends Controller
         return view('profiles.index', [
             'user'=> $user
         ]);
+    }
+
+    public function me(){
+        $user = Auth::user();
+        return view('profiles.index', ['user' => $user]);
     }
 }
