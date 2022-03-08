@@ -22,10 +22,21 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
+    protected $table = 'users';
+    
+    protected $visible = [
+        'id',
+        'name',
+        'username',
+        'email',
+        'admin'
+    ];
+
     protected $fillable = [
         'name',
         'username',
         'email',
+        'admin',
         'password',
     ];
 
@@ -46,5 +57,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'admin' => 'boolean'
     ];
 }
