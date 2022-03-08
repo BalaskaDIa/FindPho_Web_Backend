@@ -9,6 +9,7 @@ use App\Http\Requests\PictureRequest;
 use App\Http\Requests\PictureUpdateRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Intervention\Image\Facades\Image;
 
 class PictureController extends Controller
 {
@@ -49,7 +50,8 @@ class PictureController extends Controller
 
         $imagePath = request('image')->store('uploads','public');
 
-        /*$image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);*/
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200); //Gotta adjust that later
+        $image->save();
 
 
         auth()->user()->picture()->create([
@@ -60,13 +62,9 @@ class PictureController extends Controller
         return redirect('/profile/' .auth()->user()->id);
     }
 
-    public function show(int $id)
+    public function show(\App\Models\Picture $picture)
     {
-        $picture = Picture::find($id);
-        if (is_null($picture)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található kép."], 404);
-        }
-        return response()->json($picture);
+        return view('picture.show',compact('picture'));
     }
 
     public function update(PictureUpdateRequest $request, int $id)
