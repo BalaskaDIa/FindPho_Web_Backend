@@ -9,11 +9,11 @@
             <div class="col-8 offset-2">
 
                 <div class="row">
-                    <h1>Add New Post</h1>
+                    <h1>Add New Picture</h1>
                 </div>
 
                 <div class="row mb-3">
-                    <label for="caption" class="col-md-4 col-form-label">Post Caption</label>
+                    <label for="caption" class="col-md-4 col-form-label">Picture Caption</label>
 
 
                     <input id="caption" 
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="row pt-4">
-                    <button class="btn btn-primary">Add New Post</button>
+                    <button class="btn btn-primary">Add New Picture</button>
                 </div>
 
             </div>
