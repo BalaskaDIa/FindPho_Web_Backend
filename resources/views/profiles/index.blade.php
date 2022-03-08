@@ -4,14 +4,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <img src="/svg/shanks.jpg" style="height: 200px;" class="rounded-circle" alt="">
+                <img src="/storage/{{$user->profile->image}}" style="height: 200px;" class="rounded-circle" alt="">
             </div>
             <div class="col-md-4"></div>
             <div class="col-md-4 my-auto">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h1>Welcome to FindPho {{ $user->username }}!</h1>
-                    <a href="/pho/create">Add new picture</a>
+
+                    @can('update',$user->profile)
+                        <a href="/pho/create">Add New Picture</a>
+                    @endcan
+
                 </div>
+                @can('update',$user->profile)
+                    <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
+                @endcan
                 <div class="d-flex">
                     @if($user->picture->count() == 0)
                     <div class="pr-5"><strong>You didn't upload anything yet!</strong></div>
@@ -34,7 +41,9 @@
         <div class="row pt-5">
             @foreach($user->picture as $picture)
                 <div class="col-4 pb-4">
-                    <img src="/storage/{{ $picture->image }}" class="w-100">
+                    <a href="/pho/{{ $picture->id }}">
+                        <img src="/storage/{{ $picture->image }}" class="w-100">
+                    </a>
                 </div>
             @endforeach
         </div>

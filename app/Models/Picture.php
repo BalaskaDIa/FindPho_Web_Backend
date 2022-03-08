@@ -31,7 +31,8 @@ class Picture extends Model
         'description',
         'created_at',
         'updated_at',
-        'image'
+        'image',
+        'caption'
     ];
 
     protected $fillable = [
@@ -42,6 +43,7 @@ class Picture extends Model
         'description',
         'created_at',
         'updated_at',
-        'image'
+        'image',
+        'caption'
     ];
 }
