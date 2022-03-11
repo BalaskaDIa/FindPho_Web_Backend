@@ -28,6 +28,7 @@
 
 
                 <p>{{ $picture->caption }}</p>
+                <p>{{ $picture->categories->name }}</p>
 
             </div>
         </div>

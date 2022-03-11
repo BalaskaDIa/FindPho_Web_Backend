@@ -9,20 +9,24 @@ class Categories extends Model
 {
     use HasFactory;
 
-    public function picture_cat() {
-        return $this->belongsTo(Category_Picture::class);
+    public function pictures(){
+        return $this->hasMany(Picture::class);
     }
 
+    /*public function picture_cat() {
+        return $this->belongsTo(Category_Picture::class);
+    }*/
+
+
+
     protected $table = 'categories';
-    
+
     protected $visible = [
         'id',
-        'title',
-        'description'
+        'name'
     ];
 
     protected $fillable = [
-        'title',
-        'description'
+        'name'
     ];
 }

@@ -18,7 +18,8 @@ class PictureController extends Controller
     }
     public function index()
     {
-        $picture = Picture::all();
+        //$picture = Picture::all();
+        $picture = Picture::with('categories')->get();
         return response()->json($picture);
     }
 
@@ -44,7 +45,8 @@ class PictureController extends Controller
         return response()->json($picture, 201);*/
         $data = request()->validate([
             'caption' => 'required',
-            'image' => 'required|image'
+            'image' => 'required|image',
+            'categories_id' => 'required'
 
         ]);
 
@@ -56,6 +58,7 @@ class PictureController extends Controller
 
         auth()->user()->picture()->create([
             'caption' => $data['caption'],
+            'categories_id' => $data['categories_id'],
             'image' => $imagePath
         ]);
 

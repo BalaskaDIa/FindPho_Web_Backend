@@ -18,6 +18,12 @@ class Picture extends Model
     public function comment() {
         return $this->hasMany(Comment::class);
     }
+    public function categories() {
+        return $this->belongsTo(Categories::class);
+    }
+    public function picture_cat() {
+        return $this->belongsTo(Category_Picture::class);
+    }
 
 
     protected $table = 'pictures';
@@ -25,6 +31,7 @@ class Picture extends Model
     protected $visible = [
         'id',
         'user_id',
+        'categories_id',
         'url',
         'coordinate',
         'title',
@@ -37,6 +44,7 @@ class Picture extends Model
 
     protected $fillable = [
         'user_id',
+        'categories_id',
         'url',
         'coordinate',
         'title',

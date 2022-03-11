@@ -23,6 +23,10 @@ Route::get('/pho/create', [App\Http\Controllers\Api\PictureController::class, 'c
 Route::post('/pho', [App\Http\Controllers\Api\PictureController::class, 'store']);
 Route::get('/pho/{picture}', [App\Http\Controllers\Api\PictureController::class, 'show']);
 
+Route::get('/category', [App\Http\Controllers\Api\CategoriesController::class, 'index']);
+Route::get('/add-category', [App\Http\Controllers\Api\CategoriesController::class, 'create']);
+Route::post('/add-category', [App\Http\Controllers\Api\CategoriesController::class, 'store']);
+
 Route::get('/profile/{user}', [App\Http\Controllers\IndexController::class, 'index'])->name('index.show');
 Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');

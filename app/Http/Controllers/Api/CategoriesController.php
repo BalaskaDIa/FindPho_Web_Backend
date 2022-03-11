@@ -14,7 +14,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        return response()->json($categories);
+        return view('categories.index',compact('categories'));
     }
 
     public function store(Request $request)
