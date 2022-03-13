@@ -24,13 +24,18 @@
                             </div>
                         </div>
                     </div>
-                <hr>
+                    <hr>
+
+                    <h1>{{ $picture->categories->name ?? ""}}</h1>
+                    <p>{{ $picture->caption ?? ""}}</p>
+
+                    <hr>
+
+                <div> @comments(['model' => $picture,'perPage' => 3]) </div>
 
 
-                <p>{{ $picture->caption }}</p>
-                <p>{{ $picture->categories->name }}</p>
 
-            </div>
+                </div>
         </div>
     </div>
     </div>

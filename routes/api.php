@@ -20,7 +20,6 @@ use App\Http\Controllers\Api\CommentController;
 Route::apiResource('/users', UserController::class);
 Route::resource('/picture', PictureController::class);
 Route::resource('/categories', CategoriesController::class);
-Route::resource('/comments', CommentController::class);
 Route::resource('/category_picture', Category_Picture::class);
 
 

@@ -9,10 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Picture;
+use Laravelista\Comments\Commenter;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable,Commenter;
 
 
     public function picture() {
@@ -24,7 +25,7 @@ class User extends Authenticatable
     }
 
     protected $table = 'users';
-    
+
     protected $visible = [
         'id',
         'name',
