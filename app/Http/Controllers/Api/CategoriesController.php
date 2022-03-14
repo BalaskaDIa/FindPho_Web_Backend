@@ -43,6 +43,10 @@ class CategoriesController extends Controller
         }
         return response()->json($categories);
     }
+    public function create(){
+        $categories = Categories::all();
+        return view('picture.create',compact('categories'));
+    }
 
     public function update(CategoryUpdateRequest $request, int $id)
     {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Models\Picture;
 use App\Http\Requests\PictureRequest;
@@ -24,7 +25,8 @@ class PictureController extends Controller
     }
 
     public function create(){
-        return view('picture.create');
+        $categories = Categories::all();
+        return view('picture.create',compact('categories'));
     }
 
     public function store()

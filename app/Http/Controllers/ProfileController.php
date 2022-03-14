@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use \App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
@@ -13,11 +14,10 @@ class ProfileController extends Controller
 
         return view('profiles.index', compact('user'));
     }
-    public function edit(User $user)
+    public function edit()
     {
-        $this->authorize('update',$user->profile);
-
-        return view('profiles.edit', compact('user'));
+        $user = Auth::user();
+        return view('profiles.edit', ['user' => $user]);
     }
     public function update(User $user){
         $data = request()->validate([

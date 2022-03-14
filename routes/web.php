@@ -29,7 +29,7 @@ Route::get('/add-category', [App\Http\Controllers\Api\CategoriesController::clas
 Route::post('/add-category', [App\Http\Controllers\Api\CategoriesController::class, 'store']);
 
 Route::get('/profile/{user}', [App\Http\Controllers\IndexController::class, 'index'])->name('index.show');
-Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
+Route::get('/profile/me/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/me', [App\Http\Controllers\IndexController::class, 'me'])->name('index.me');
@@ -38,3 +38,6 @@ Route::post('comments', Config::get('comments.controller') . '@store')->name('co
 Route::delete('comments/{comment}', Config::get('comments.controller') . '@destroy')->name('comments.destroy');
 Route::put('comments/{comment}', Config::get('comments.controller') . '@update')->name('comments.update');
 Route::post('comments/{comment}', Config::get('comments.controller') . '@reply')->name('comments.reply');
+
+
+

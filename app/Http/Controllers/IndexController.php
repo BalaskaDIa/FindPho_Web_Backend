@@ -26,9 +26,7 @@ class IndexController extends Controller
     public function index($user)
     {
         $user = User::find($user);
-        return view('profiles.index', [
-            'user'=> $user
-        ]);
+        return view('profiles.index', compact('user'));
     }
 
     public function me(){

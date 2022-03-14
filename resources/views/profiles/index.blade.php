@@ -12,13 +12,11 @@
                     <h1>Welcome to FindPho {{ $user->username }}!</h1>
 
                     @can('update',$user->profile)
-                        <a href="/pho/create">Add New Picture</a>
+                        <a href="/pho/create"><button type="button" class="btn btn-primary">Add New Picture</button></a>
                     @endcan
 
                 </div>
-                @can('update',$user->profile)
-                    <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
-                @endcan
+
                 <div class="d-flex">
                     @if($user->picture->count() == 0)
                     <div class="pr-5"><strong>You didn't upload anything yet!</strong></div>
@@ -36,6 +34,9 @@
                     {{ $user->profile->description ?? ""}}
                 </div>
                 <div><a href="#">{{ $user->profile->url ?? 'N/A' }}</a></div>
+                    @can('update',$user->profile)
+                        <a href="/profile/me/edit"><button type="button" class="btn btn-primary">Edit Profile</button></a>
+                    @endcan
             </div>
         </div>
         <div class="row pt-5">
