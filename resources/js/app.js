@@ -30,3 +30,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const submit = document.getElementById("submit");
+    const result = document.getElementById("categories_id");
+    result.addEventListener('change', (event) => {
+        submit.click();
+    });
+})

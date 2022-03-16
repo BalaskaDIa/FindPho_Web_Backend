@@ -33,7 +33,7 @@
 
                     <select name="categories_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                     </select>
                 </div>

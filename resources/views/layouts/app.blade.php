@@ -34,6 +34,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">Categories</a>
+                    </li> 
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pho/create">Upload picture</a>
+                    </li>
 
                     </ul>
 

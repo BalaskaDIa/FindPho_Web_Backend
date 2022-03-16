@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use App\Models\Picture;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use Illuminate\Support\Facades\Validator;
@@ -14,7 +15,9 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        return view('categories.index',compact('categories'));
+        $picture = Picture::all();
+        
+        return view('categories.index',compact('categories','picture'));
     }
 
     public function store(Request $request)

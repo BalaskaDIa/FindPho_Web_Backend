@@ -5426,6 +5426,13 @@ Vue.component('example-component', (__webpack_require__(/*! ./components/Example
 var app = new Vue({
   el: '#app'
 });
+window.addEventListener('DOMContentLoaded', function () {
+  var submit = document.getElementById("submit");
+  var result = document.getElementById("categories_id");
+  result.addEventListener('change', function (event) {
+    submit.click();
+  });
+});
 
 /***/ }),
 
