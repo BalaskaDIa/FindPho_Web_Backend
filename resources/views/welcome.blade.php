@@ -8,7 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -24,7 +23,21 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>Next</h1>
+    <div class="container">
+        <form class="input-group my-5" type="get" action="{{ url('/search') }}">
+            <input name="search" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <button type="submit" class="btn btn-outline-primary">search</button>
+        </form>
+        <div class="row pt-5">
+            @foreach($picture as $pic)
+                <div class="col-4 pb-4">
+                    <a href="/pho/{{ $pic->id }}">
+                        <img src="/storage/{{ $pic->image }}" class="w-100">
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
     </body>
 </html>
 @endsection

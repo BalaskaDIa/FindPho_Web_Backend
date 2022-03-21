@@ -103,4 +103,11 @@ class PictureController extends Controller
         Picture::destroy($id);
         return response()->noContent();
     }
+
+    public function search(){
+        $txt = $_GET['search'];
+        $picture = Picture::where('caption','LIKE','%'.$txt.'%')->with('categories')->get();
+
+        return view('picture.search',compact('picture'));
+    }
 }

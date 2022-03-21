@@ -18,6 +18,8 @@ php artisan ui vue --auth
 
 npm run dev  //twice
 
+composer require laravelista/comments
+
 php artisan migrate
 
 To Start our wonderful project:---------------------------------------------------

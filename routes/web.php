@@ -15,14 +15,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
 
 Auth::routes();
 Route::get('/pho/create', [App\Http\Controllers\Api\PictureController::class, 'create']);
 Route::post('/pho', [App\Http\Controllers\Api\PictureController::class, 'store']);
 Route::get('/pho/{picture}', [App\Http\Controllers\Api\PictureController::class, 'show']);
+Route::get('/search', [App\Http\Controllers\Api\PictureController::class, 'search']);
 
 Route::get('/categories', [App\Http\Controllers\Api\CategoriesController::class, 'index']);
 Route::get('/add-category', [App\Http\Controllers\Api\CategoriesController::class, 'create']);
