@@ -105,7 +105,7 @@ class PictureController extends Controller
     }
 
     public function search(Request $request){
-        $pics=Picture::where('caption',$request->keywords)->get();
+        $pics=Picture::where('caption','LIKE','%'.$request->keywords.'%')->get();
         return response()->json($pics);
     }
 }
