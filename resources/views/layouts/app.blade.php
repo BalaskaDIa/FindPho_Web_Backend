@@ -36,7 +36,7 @@
                     <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/categories">Categories</a>
-                    </li> 
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="/pho/create">Upload picture</a>

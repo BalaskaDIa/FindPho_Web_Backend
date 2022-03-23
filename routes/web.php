@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PictureController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,8 @@ Auth::routes();
 Route::get('/pho/create', [App\Http\Controllers\Api\PictureController::class, 'create']);
 Route::post('/pho', [App\Http\Controllers\Api\PictureController::class, 'store']);
 Route::get('/pho/{picture}', [App\Http\Controllers\Api\PictureController::class, 'show']);
-Route::get('/search', [App\Http\Controllers\Api\PictureController::class, 'search']);
+
+Route::get('/search', [PictureController::class, 'search']);
 
 Route::get('/categories', [App\Http\Controllers\Api\CategoriesController::class, 'index']);
 Route::get('/add-category', [App\Http\Controllers\Api\CategoriesController::class, 'create']);
