@@ -1,16 +1,14 @@
 <template>
     <div class="container">
-        <input value="Type here" type="text" v-model="keywords">
+        <input placeholder="Type here" type="text" v-model="keywords">
         <div class="row justify-content-center" v-if="results.length > 0">
-            <div class="col-md-4 row pt-3" v-for="result in results" :key="result.id">
-                <div class="card">
+            <div class="col-md-4 row pt-2" v-for="result in results" :key="result.id">
                     <div class="card-header" style=" background-color: #183B62; text-align: center;">{{ result.caption }}</div>
-                    <div class="card-body" style=" background-color: #235892;">
+                    <div class="card-body " style=" background-color: #235892;">
                         <a :href="`/pho/${ result.id }`">
-                            <img height="170px" :src="`../storage/${result.image}`" alt="There is some issue with the image. Please try to reload the website." />
+                            <img class="card-img" height="170px" :src="`../storage/${result.image}`" alt="There is some issue with the image. Please try to reload the website." />
                         </a>
                     </div>
-                </div>
         </div>
         </div>
     </div>

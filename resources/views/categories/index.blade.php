@@ -3,9 +3,13 @@
 @section('content')
 
     <div class="container">
-        <div class="card pb-4">
-            <div class="card-header row pt-5">
-                <label for="categories_id" class="col-md-4 col-form-label">Picture Category</label>
+
+        <div class="row justify-content-center">
+        <div class="col-md-8">
+
+        <div class="card">
+            <div class="card-header row">
+                <h2 class="row justify-content-center">Pick one category</h2>
 
                 <form>
                     @csrf
