@@ -28044,7 +28044,7 @@ var render = function () {
           expression: "keywords",
         },
       ],
-      attrs: { type: "text" },
+      attrs: { value: "Type here", type: "text" },
       domProps: { value: _vm.keywords },
       on: {
         input: function ($event) {
@@ -28061,30 +28061,44 @@ var render = function () {
           "div",
           { staticClass: "row justify-content-center" },
           _vm._l(_vm.results, function (result) {
-            return _c("div", { key: result.id, staticClass: "col-md-8" }, [
-              _c("div", { staticClass: "card" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card-header",
-                    staticStyle: { "text-align": "center" },
-                  },
-                  [_vm._v(_vm._s(result.caption))]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("a", { attrs: { href: "/pho/" + result.id } }, [
-                    _c("img", {
-                      attrs: {
-                        height: "360px",
-                        src: "../storage/" + result.image,
-                        alt: "There is some issue with the image. Please try to reload the website.",
+            return _c(
+              "div",
+              { key: result.id, staticClass: "col-md-4 row pt-3" },
+              [
+                _c("div", { staticClass: "card" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-header",
+                      staticStyle: {
+                        "background-color": "#183B62",
+                        "text-align": "center",
                       },
-                    }),
-                  ]),
+                    },
+                    [_vm._v(_vm._s(result.caption))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-body",
+                      staticStyle: { "background-color": "#235892" },
+                    },
+                    [
+                      _c("a", { attrs: { href: "/pho/" + result.id } }, [
+                        _c("img", {
+                          attrs: {
+                            height: "170px",
+                            src: "../storage/" + result.image,
+                            alt: "There is some issue with the image. Please try to reload the website.",
+                          },
+                        }),
+                      ]),
+                    ]
+                  ),
                 ]),
-              ]),
-            ])
+              ]
+            )
           }),
           0
         )

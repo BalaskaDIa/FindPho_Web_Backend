@@ -3,8 +3,8 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
-            <div class="row pt-5">
+        <div class="card pb-4">
+            <div class="card-header row pt-5">
                 <label for="categories_id" class="col-md-4 col-form-label">Picture Category</label>
 
                 <form>
@@ -21,11 +21,11 @@
                     <input id="submit" type="submit" value="" style="display:none;">
                 </form>
             </div>
-            
+
 
             <div class="result"></div>
 
-            <div class="row pt-5">
+            <div class="card-body row pt-5">
             @foreach($picture as $pic)
                 @if(!isset($_GET["categories_id"])||$pic->categories_id == $_GET["categories_id"])
                 <div class="col-4 pb-4">

@@ -18,7 +18,7 @@
                             <div>
                                 <h2 class="font-weight-bold">
                                     <a href="/profile/{{$picture->user->id}}">
-                                        <span class="text-dark">{{ $picture->user->username }}</span>
+                                        <span class="text-white">{{ $picture->user->username }}</span>
                                     </a>
                                 </h2>
                             </div>
