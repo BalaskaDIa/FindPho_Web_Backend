@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Categories;
-use Illuminate\Http\Request;
-use App\Models\Picture;
-use App\Http\Requests\PictureRequest;
 use App\Http\Requests\PictureUpdateRequest;
+use App\Models\Categories;
+use App\Models\Picture;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
 use Intervention\Image\Facades\Image;
+use function auth;
+use function public_path;
+use function redirect;
+use function request;
+use function response;
+use function view;
 
 class PictureController extends Controller
 {

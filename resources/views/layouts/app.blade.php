@@ -23,7 +23,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
                 <div><img src="/svg/LuffyLogo.png" style="height: 25px; border-right: 3px solid #888; padding-right: 10px" alt="Logo"></div>
@@ -68,7 +68,7 @@
 
 
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end bg-color-dark" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('index.me') }}"
                                     onclick="event.AT_TARGET;
                                                      submit();">

@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\PictureController;
+use App\Http\Controllers\PictureController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
 
 Auth::routes();
-Route::get('/pho/create', [App\Http\Controllers\Api\PictureController::class, 'create']);
-Route::post('/pho', [App\Http\Controllers\Api\PictureController::class, 'store']);
-Route::get('/pho/{picture}', [App\Http\Controllers\Api\PictureController::class, 'show']);
+Route::get('/pho/create', [\App\Http\Controllers\PictureController::class, 'create']);
+Route::post('/pho', [\App\Http\Controllers\PictureController::class, 'store']);
+Route::get('/pho/{picture}', [\App\Http\Controllers\PictureController::class, 'show']);
 
 Route::get('/search', [PictureController::class, 'search']);
 
