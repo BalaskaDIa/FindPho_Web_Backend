@@ -25,9 +25,9 @@ Route::get('/pho/{picture}', [\App\Http\Controllers\PictureController::class, 's
 
 Route::get('/search', [PictureController::class, 'search']);
 
-Route::get('/categories', [App\Http\Controllers\Api\CategoriesController::class, 'index']);
-Route::get('/add-category', [App\Http\Controllers\Api\CategoriesController::class, 'create']);
-Route::post('/add-category', [App\Http\Controllers\Api\CategoriesController::class, 'store']);
+Route::get('/categories', [\App\Http\Controllers\CategoriesController::class, 'index']);
+Route::get('/add-category', [\App\Http\Controllers\CategoriesController::class, 'create']);
+Route::post('/add-category', [\App\Http\Controllers\CategoriesController::class, 'store']);
 
 Route::get('/profile/{user}', [App\Http\Controllers\IndexController::class, 'index'])->name('index.show');
 Route::get('/profile/me/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
