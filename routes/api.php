@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\PictureController;
 use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\PictureController;
 use Illuminate\Support\Facades\Route;
 
 

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
         $this->call(CategoriesSeeder::class);
         $this->call(PictureSeeder::class);
-        $this->call(CommentSeeder::class);
+        //$this->call(CommentSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ReviewSeeder::class);
     }
