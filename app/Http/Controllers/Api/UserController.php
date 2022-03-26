@@ -21,11 +21,6 @@ class UserController extends Controller
     {
         $user = User::all();
         return response()->json($user);
-        /*$user = User::with('ratings')
-            ->select('users.*', 'ratings.description', 'ratings.stars')
-            ->leftjoin('ratings', 'user_id', '=', 'users.id')
-            ->get('users.*');
-        return response()->json($user);*/
     }
 
     /**
@@ -46,7 +41,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        /*$validator = Validator::make($request->all(), (new UserRequest())->rules());
+        $validator = Validator::make($request->all(), (new UserRequest())->rules());
         if ($validator->fails()) {
             $errormsg = "";
             foreach ($validator->errors()->all() as $error) {
@@ -60,7 +55,7 @@ class UserController extends Controller
         $user->fill([
             'password' => Hash::make($request->input('password'))
         ])->save();
-        return response()->json($user, 201);*/
+        return response()->json($user, 201);
     }
 
     /**
@@ -69,18 +64,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(/*int $id*/)
+    public function show(int $id)
     {
-        /*$user = User::with('ratings')
-        ->select('users.*', 'ratings.description', 'ratings.stars')
-        ->leftjoin('ratings', 'user_id', '=', 'users.id')
-        ->where('users.id', $id)
-        ->get('users.*');
-        
+        $user = User::find($id);
+
         if (is_null($user)) {
             return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
-        return response()->json($user);*/
+        return response()->json($user);
     }
 
     /**
@@ -89,7 +80,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(/*$id*/)
+    public function edit($id)
     {
         //
     }
@@ -101,9 +92,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(/*UserUpdateRequest $request, int $id*/)
+    public function update(UserUpdateRequest $request, int $id)
     {
-        /*if ($request->isMethod('PUT')) {
+        if ($request->isMethod('PUT')) {
             $validator = Validator::make($request->all(), (new UserUpdateRequest())->rules());
             if($validator->fails()) {
                 $errormsg = "";
@@ -122,7 +113,7 @@ class UserController extends Controller
 
         $user->fill($request->all());
         $user->save();
-        return response()->json($user, 200);*/
+        return response()->json($user, 200);
     }
 
     /**
@@ -131,13 +122,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(/*int $id*/)
+    public function destroy(int $id)
     {
-        /*$user = User::find($id);
+        $user = User::find($id);
         if (is_null($user)) {
             return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
         User::destroy($id);
-        return response()->noContent();*/
+        return response()->noContent();
     }
 }
