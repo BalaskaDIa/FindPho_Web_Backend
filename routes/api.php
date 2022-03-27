@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PictureController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\Api\AuthController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,10 +18,16 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::apiResource('/users', UserController::class);
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::apiResource('/users', UserController::class)->middleware('auth:sanctum');
 Route::resource('/picture', PictureController::class);
 Route::resource('/categories', CategoriesController::class);
 Route::resource('/category_picture', Category_Picture::class);
 Route::get('/livesearch', [\App\Http\Controllers\PictureController::class, 'search']);
+Route::post('/login', [AuthController::class, 'login']);
 
 
