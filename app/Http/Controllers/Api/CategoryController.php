@@ -7,7 +7,6 @@ use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Categories;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
@@ -42,7 +41,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), (new CategoryRequest())->rules());
-        if ($validator->fails()) {
+        if  ($validator->fails()) {
             $errormsg = "";
             foreach ($validator->errors()->all() as $error) {
                 $errormsg .= $error . " ";
@@ -50,12 +49,11 @@ class CategoryController extends Controller
             $errormsg = trim($errormsg);
             return response()->json($errormsg, 400);
         }
-        $category = new Categories();
-        $category->fill($request->all());
-        $category->fill([
-            'password' => Hash::make($request->input('password'))
-        ])->save();
-        return response()->json($category, 201);
+
+        $categories = new Categories();
+        $categories->fill($request->all());
+        $categories->save();
+        return response()->json($categories, 201);
     }
 
     /**

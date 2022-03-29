@@ -25,11 +25,7 @@ class PictureRequest extends FormRequest
     {
         return [
             'url' => 'required|string|max:255',
-            'coordinate' => 'required|string',
-            'title' => 'required|string',
-            'description' => 'required',
-            'created_at' => 'required',
-            'updated_at' => 'required',
+            'caption' => 'required|string'
         ];
     }
 }
