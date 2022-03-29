@@ -18,10 +18,10 @@ class PictureFactory extends Factory
     {
         return [
             'url' => $this->faker->url(),
-            'user_id' => 1,
-            'coordinate' => $this->faker->text(10),
+            'user_id' => $this->faker->numberBetween(1,10),
             'title' => $this->faker->realText(10),
             'description' => $this->faker->realText(50),
+            'caption' => $this->faker->realText(50),
             'created_at' => $this->faker->date('Y-m-d'),
             'updated_at' => $this->faker->date('Y-m-d'),
         ];
