@@ -5383,6 +5383,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5392,7 +5403,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     keywords: function keywords(after, before) {
-      this.fetch();
+      if (after.length === 0) {
+        this.results = [];
+      } else {
+        this.fetch();
+      }
     }
   },
   methods: {
@@ -5406,6 +5421,9 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         return _this.results = response.data;
       })["catch"](function (error) {});
+    },
+    getLogo: function getLogo(logo) {
+      return '../svg/' + logo;
     }
   }
 });
@@ -28042,7 +28060,7 @@ var render = function () {
           expression: "keywords",
         },
       ],
-      attrs: { placeholder: "Type here", type: "text" },
+      attrs: { placeholder: "Search here...", type: "text" },
       domProps: { value: _vm.keywords },
       on: {
         input: function ($event) {
@@ -28059,47 +28077,60 @@ var render = function () {
           "div",
           { staticClass: "row justify-content-center" },
           _vm._l(_vm.results, function (result) {
-            return _c(
-              "div",
-              { key: result.id, staticClass: "col-md-4 row pt-2" },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card-header",
-                    staticStyle: {
-                      "background-color": "#183B62",
-                      "text-align": "center",
-                    },
+            return _c("div", { key: result.id, staticClass: "col-md-4 pt-3" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card-header",
+                  staticStyle: {
+                    "background-color": "#183B62",
+                    "text-align": "center",
                   },
-                  [_vm._v(_vm._s(result.caption))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "card-body ",
-                    staticStyle: { "background-color": "#235892" },
-                  },
-                  [
-                    _c("a", { attrs: { href: "/pho/" + result.id } }, [
-                      _c("img", {
-                        staticClass: "card-img",
-                        attrs: {
-                          height: "170px",
-                          src: "../storage/" + result.image,
-                          alt: "There is some issue with the image. Please try to reload the website.",
-                        },
-                      }),
-                    ]),
-                  ]
-                ),
-              ]
-            )
+                },
+                [_vm._v(_vm._s(result.caption))]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "card-body ",
+                  staticStyle: { "background-color": "#235892" },
+                },
+                [
+                  _c("a", { attrs: { href: "/pho/" + result.id } }, [
+                    _c("img", {
+                      staticClass: "card-img",
+                      attrs: {
+                        height: "170px",
+                        src: "../storage/" + result.image,
+                        alt: "There is some issue with the image. Please try to reload the website.",
+                      },
+                    }),
+                  ]),
+                ]
+              ),
+            ])
           }),
           0
         )
-      : _vm._e(),
+      : _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "pt-5" }, [
+            _c("div", { staticClass: "row justify-content-center" }, [
+              _vm._v("Don't you find a photo that you wanna see?"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row justify-content-center" }, [
+              _vm._v("Don't hesitate to shoot your own photos!"),
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/pho/create" } }, [
+              _c("img", {
+                staticClass: "card-img",
+                attrs: { src: _vm.getLogo("findpho.jpg") },
+              }),
+            ]),
+          ]),
+        ]),
   ])
 }
 var staticRenderFns = []

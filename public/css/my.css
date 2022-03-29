@@ -1,6 +1,6 @@
 body {
     color: #ffffff;
-    background-color: #183B62;
+    background-color: #19406B;
 }
 .card{
     background-color: #000;
@@ -8,20 +8,21 @@ body {
 
     border: 1px solid rgba(0, 0, 0, 0.125);
 
-
 }
 .card-header {
     padding: 2rem 2rem;
     margin-bottom: 0;
-    background-color: #73A3EF;
-    border-radius: 5rem;
+    background-color: #235892;
+    border-radius: 2rem;
     border: 20px solid rgba(0, 0, 0, 0.125);
 }
 .card-body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
-    background-color: #235892;
+    background-color: #73A3EF;
     border: 5px solid rgba(0, 0, 0, 0.125);
 }
-
+.navbar{
+    background-color: #183B62;
+}
 

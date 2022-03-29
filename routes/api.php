@@ -26,7 +26,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('/users', UserController::class)->middleware('auth:sanctum');
 Route::resource('/picture', PictureController::class);
 Route::resource('/categories', CategoriesController::class);
-Route::resource('/category_picture', Category_Picture::class);
 Route::get('/livesearch', [\App\Http\Controllers\PictureController::class, 'search']);
 Route::post('/login', [AuthController::class, 'login']);
 

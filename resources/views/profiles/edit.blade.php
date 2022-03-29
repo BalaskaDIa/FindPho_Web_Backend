@@ -5,11 +5,10 @@
         <div class="row justify-content-center">
 
             <div class="col-md-6">
-                <div class="card">
                         <form action="/profile/{{$user->id}}" enctype="multipart/form-data" method="post">
                             @csrf
                             @method('PATCH')
-                            <div class="card-header row">
+                            <div class="card-header">
                                 <div class="col-8 offset-2">
 
                                     <div class="row">
@@ -77,7 +76,7 @@
                                     </div>
 
                                     <div class="row pt-4">
-                                        <button class="btn btn-primary">Save Profile</button>
+                                        <button class="btn btn-light">Save Profile</button>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +84,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 @endsection
 

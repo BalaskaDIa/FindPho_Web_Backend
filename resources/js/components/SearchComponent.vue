@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <input placeholder="Type here" type="text" v-model="keywords">
+        <input placeholder="Search here..." type="text" v-model="keywords">
         <div class="row justify-content-center" v-if="results.length > 0">
-            <div class="col-md-4 row pt-2" v-for="result in results" :key="result.id">
+            <div class="col-md-4 pt-3" v-for="result in results" :key="result.id">
                     <div class="card-header" style=" background-color: #183B62; text-align: center;">{{ result.caption }}</div>
                     <div class="card-body " style=" background-color: #235892;">
                         <a :href="`/pho/${ result.id }`">
@@ -10,6 +10,17 @@
                         </a>
                     </div>
         </div>
+        </div>
+
+
+        <div class="row justify-content-center" v-else>
+            <div class="pt-5">
+            <div class="row justify-content-center">Don't you find a photo that you wanna see?</div>
+            <div class="row justify-content-center">Don't hesitate to shoot your own photos!</div>
+                <a :href="`/pho/create`">
+                <img class="card-img"  :src="getLogo('findpho.jpg')" />
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -23,7 +34,14 @@ export default {
     },
     watch: {
         keywords(after, before) {
-            this.fetch();
+            if (after.length === 0){
+                this.results = [];
+            }
+            else
+            {
+                this.fetch();
+
+            }
         }
     },
     methods: {
@@ -31,6 +49,9 @@ export default {
             axios.get('/search', { params: { keywords: this.keywords } })
                 .then(response => this.results = response.data)
                 .catch(error => {});
+        },
+        getLogo(logo){
+            return '../svg/'+logo;
         }
     }
 }
