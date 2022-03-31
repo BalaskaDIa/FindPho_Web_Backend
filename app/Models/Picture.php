@@ -30,26 +30,20 @@ class Picture extends Model
         'id',
         'user_id',
         'categories_id',
-        'url',
-        'coordinate',
         'title',
         'description',
         'created_at',
         'updated_at',
-        'image',
-        'caption'
+        'image'
     ];
 
     protected $fillable = [
         'user_id',
         'categories_id',
-        'url',
-        'coordinate',
         'title',
         'description',
         'created_at',
         'updated_at',
-        'image',
-        'caption'
+        'image'
     ];
 }

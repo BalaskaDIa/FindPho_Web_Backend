@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/toTopButton.js') }}" defer></script>
 
 
     <!-- Fonts -->
@@ -23,7 +24,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
                 <div><img src="/svg/findpho.jpg" style="height: 25px; border-right: 3px solid #888; padding-right: 10px" alt="Logo"></div>
@@ -105,4 +106,16 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+<footer>
+    <div class="container">
+        <div>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        </div>
+        <div class="fixed-bottom">
+            © 2022 FindPho. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
 </html>

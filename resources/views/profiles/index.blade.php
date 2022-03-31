@@ -31,7 +31,7 @@
                                             <div>
                                                 Description: {{ $user->profile->description ?? ""}}
                                             </div>
-                                            <div>URL: <a href="#">{{ $user->profile->url ?? 'N/A' }}</a></div>
+                                            <div>URL: <a href="#">{{ $user->profile->url ?? "" }}</a></div>
                                         </h3>
                                 </div>
                             <div class="col-md-3">
@@ -46,10 +46,21 @@
                         </div>
                         <div class="card-body row">
                             @foreach($user->picture as $picture)
-                                <div class="col-4 pb-4">
+                                <div class="col-4 pb-4 pic">
                                     <a href="/pho/{{ $picture->id }}">
-                                        <img src="/storage/{{ $picture->image }}" class="w-100">
+                                        <img src="/storage/{{ $picture->image }}" class="w-100 image" style="width:100%">
                                     </a>
+                                    <div class="middle">
+                                        <a href="/pho/{{ $picture->id }}"><div class="text">{{$picture->title}}</div></a>
+                                    </div>
+                                    <form action="{{url('/delete-pho/'.$picture->id) }}" method="POST">
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+
+                                        <div class="top">
+                                            <button class="text2">Delete</button>
+                                        </div>
+                                    </form>
                                 </div>
                             @endforeach
                         </div>
