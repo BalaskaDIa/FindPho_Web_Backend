@@ -22,7 +22,6 @@ class PictureController extends Controller
     }
     public function index()
     {
-        //$picture = Picture::all();
         $picture = Picture::with('categories')->get();
         return response()->json($picture);
     }
@@ -34,20 +33,6 @@ class PictureController extends Controller
 
     public function store()
     {
-        /*$validator = Validator::make($request->all(), (new PictureRequest())->rules());
-        if  ($validator->fails()) {
-            $errormsg = "";
-            foreach ($validator->errors()->all() as $error) {
-                $errormsg .= $error . " ";
-            }
-            $errormsg = trim($errormsg);
-            return response()->json($errormsg, 400);
-        }
-
-        $picture = new Picture();
-        $picture->fill($request->all());
-        $picture->save();
-        return response()->json($picture, 201);*/
         $data = request()->validate([
             //'caption' => 'required',
             'description' => 'required',

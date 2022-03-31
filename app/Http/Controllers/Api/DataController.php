@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Comment;
 use App\Models\Picture;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -23,6 +24,15 @@ class DataController extends Controller
     public function allCategories() {
         $allusers = Categories::where('categories.id', '>=', '1')->count();
         return response()->json($allusers);
+    }
+
+    public function comments() {
+        $comments = Comment::orderBy('comments.created_at')->get()->groupBy(function($data) 
+        {
+            return $data->created_at->format('Y-m-d');
+        });
+        //$comments = Comment::all();
+        return response()->json($comments);
     }
     /**
      * Display a listing of the resource.
