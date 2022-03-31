@@ -5,12 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PictureRequest;
 use App\Http\Requests\PictureUpdateRequest;
-use App\Models\Categories;
 use App\Models\Picture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
 
 class PictureController extends Controller
 {
@@ -21,7 +19,10 @@ class PictureController extends Controller
      */
     public function index()
     {
-        $picture = Picture::all();
+        $picture = Picture::join('categories', 'categories.id', '=', 'pictures.categories_id')
+        ->select(['pictures.*', 'categories.name as category'])
+        ->get();
+
         return response()->json($picture);
     }
 

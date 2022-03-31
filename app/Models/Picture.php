@@ -19,10 +19,6 @@ class Picture extends Model
     public function categories() {
         return $this->belongsTo(Categories::class);
     }
-    public function picture_cat() {
-        return $this->belongsTo(Category_Picture::class);
-    }
-
 
     protected $table = 'pictures';
 
@@ -37,7 +33,8 @@ class Picture extends Model
         'created_at',
         'updated_at',
         'image',
-        'caption'
+        'caption',
+        'category'
     ];
 
     protected $fillable = [

@@ -34,5 +34,6 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/allusers', [DataController::class, 'allUsers']);
 Route::get('/allphotos', [DataController::class, 'allPhotos']);
 Route::get('/allcategories', [DataController::class, 'allCategories']);
+Route::get('/comments', [DataController::class, 'comments']);
 
 
