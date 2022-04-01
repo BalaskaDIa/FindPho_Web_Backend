@@ -14,7 +14,7 @@ class AuthController extends Controller
             $token = Auth::user()->createToken('apitoken');
             return response()->json(['token' => $token->plainTextToken]);
         } else {
-            return response()->json(['message' => 'Invalid username or password']);
+            return response()->json(['message' => 'Invalid username or password'], 401);
         }
     }
     /**

@@ -24,8 +24,7 @@ class PictureRequest extends FormRequest
     public function rules()
     {
         return [
-            'url' => 'required|string|max:255',
-            'caption' => 'required|string'
+            'title' => 'required|string'
         ];
     }
 }

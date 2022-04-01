@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('url');
             $table->string('title');
             $table->string('description');
-            $table->text('caption');
             $table->string('image');
             $table->timestamps();
             $table->index('user_id');
