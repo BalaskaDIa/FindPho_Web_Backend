@@ -34,7 +34,9 @@ class PictureController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'caption' => 'required',
+            //'caption' => 'required',
+            'description' => 'required',
+            'title' => 'required',
             'image' => 'required|image',
             'categories_id' => 'required'
 
@@ -47,7 +49,9 @@ class PictureController extends Controller
 
 
         auth()->user()->picture()->create([
-            'caption' => $data['caption'],
+            //'caption' => $data['caption'],
+            'description' => $data['description'],
+            'title' => $data['title'],
             'categories_id' => $data['categories_id'],
             'image' => $imagePath
         ]);
@@ -84,16 +88,16 @@ class PictureController extends Controller
 
     public function destroy(int $id)
     {
-        $picture = Picture::find($id);
+        $picture = Picture::find($id)->delete();
         if (is_null($picture)) {
             return response()->json(["message" => "A megadott azonosítóval nem található kép."], 404);
         }
         Picture::destroy($id);
-        return response()->noContent();
+        return redirect()->back();
     }
 
     public function search(Request $request){
-        $pics=Picture::where('caption','LIKE','%'.$request->keywords.'%')->get();
+        $pics=Picture::where('title','LIKE','%'.$request->keywords.'%')->get();
         return response()->json($pics);
     }
 }

@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/pho/create', [\App\Http\Controllers\PictureController::class, 'create']);
 Route::post('/pho', [\App\Http\Controllers\PictureController::class, 'store']);
 Route::get('/pho/{picture}', [\App\Http\Controllers\PictureController::class, 'show']);
+Route::delete('/delete-pho/{id}', [\App\Http\Controllers\PictureController::class, 'destroy']);
 
 Route::get('/search', [PictureController::class, 'search']);
 

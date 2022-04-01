@@ -17,16 +17,28 @@
 
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="caption" class="row justify-content-center">Photo Caption</label>
-
-
-                                    <input id="caption"
+                                    <label for="title" class="row justify-content-center">Photo Title</label>
+                                    <input id="title"
                                     type="text"
-                                    name="caption"
-                                    class="card-text form-control @error('caption') is-invalid @enderror mb-3 mt-3"
-                                    value="{{ old('caption') }}" required autocomplete="caption" autofocus>
+                                    name="title"
+                                    class="card-text form-control @error('title') is-invalid @enderror mb-3 mt-3"
+                                    value="{{ old('title') }}" required autocomplete="title" autofocus>
 
-                                    @error('caption')
+                                    @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="row justify-content-center">Photo Description</label>
+                                    <input id="description"
+                                           type="text"
+                                           name="description"
+                                           class="card-text form-control @error('description') is-invalid @enderror mb-3 mt-3"
+                                           value="{{ old('description') }}" required autocomplete="description" autofocus>
+
+                                    @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

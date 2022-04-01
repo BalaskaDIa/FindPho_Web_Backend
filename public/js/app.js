@@ -28087,7 +28087,7 @@ var render = function () {
                     "text-align": "center",
                   },
                 },
-                [_vm._v(_vm._s(result.caption))]
+                [_vm._v(_vm._s(result.title))]
               ),
               _vm._v(" "),
               _c(

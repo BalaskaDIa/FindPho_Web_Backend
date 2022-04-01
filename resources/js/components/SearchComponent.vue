@@ -3,7 +3,7 @@
         <input placeholder="Search here..." type="text" v-model="keywords">
         <div class="row justify-content-center" v-if="results.length > 0">
             <div class="col-md-4 pt-3" v-for="result in results" :key="result.id">
-                    <div class="card-header" style=" background-color: #183B62; text-align: center;">{{ result.caption }}</div>
+                    <div class="card-header" style=" background-color: #183B62; text-align: center;">{{ result.title }}</div>
                     <div class="card-body " style=" background-color: #235892;">
                         <a :href="`/pho/${ result.id }`">
                             <img class="card-img" height="170px" :src="`../storage/${result.image}`" alt="There is some issue with the image. Please try to reload the website." />

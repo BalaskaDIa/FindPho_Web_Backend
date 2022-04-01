@@ -28,9 +28,9 @@ class IndexController extends Controller
         $user = User::find($user);
         return view('profiles.index', compact('user'));
     }
-
     public function me(){
         $user = Auth::user();
         return view('profiles.index', ['user' => $user]);
     }
+
 }

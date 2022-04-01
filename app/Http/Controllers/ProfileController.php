@@ -11,7 +11,6 @@ class ProfileController extends Controller
     public function index(User $user)
     {
         $this->authorize('update',$user->profile);
-
         return view('profiles.index', compact('user'));
     }
     public function edit()
@@ -44,6 +43,7 @@ class ProfileController extends Controller
 
         return redirect("/profile/{$user->id}"); // or me
     }
+
 
 
 }

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Categories::class)->constrained();
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->string('url');
             $table->string('title');
             $table->string('description');
             $table->string('image');

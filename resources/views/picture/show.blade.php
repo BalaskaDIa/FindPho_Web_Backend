@@ -26,14 +26,13 @@
                     </div>
                     <hr>
 
-                    <h1>{{ $picture->categories->name ?? ""}}</h1>
-                    <p>{{ $picture->caption ?? ""}}</p>
+                    <h2>Title: {{ $picture->title ?? ""}}</h2>
+                    <h3>Category: {{ $picture->categories->name ?? ""}}</h3>
+                    <p>Description: {{ $picture->description ?? ""}}</p>
 
                     <hr>
 
-                <div> @comments(['model' => $picture,'perPage' => 3]) </div>
-
-
+                <div> @comments(['model' => $picture,'perPage' => 4]) </div>
 
                 </div>
         </div>
