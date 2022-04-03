@@ -21,7 +21,6 @@ class PictureFactory extends Factory
         $categories = Categories::all()->pluck('id')->toArray();
         $user = User::all()->pluck('id')->toArray();
         return [
-            'url' => $this->faker->url(),
             'user_id' => $this->faker->randomElement($user),
             'categories_id' => $this->faker->randomElement($categories),
             'title' => $this->faker->realText(10),

@@ -4,6 +4,8 @@ use App\Http\Controllers\PictureController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,22 +21,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
 
 Auth::routes();
-Route::get('/pho/create', [\App\Http\Controllers\PictureController::class, 'create']);
-Route::post('/pho', [\App\Http\Controllers\PictureController::class, 'store']);
-Route::get('/pho/{picture}', [\App\Http\Controllers\PictureController::class, 'show']);
-Route::delete('/delete-pho/{id}', [\App\Http\Controllers\PictureController::class, 'destroy']);
-
+Route::get('/pho/create', [PictureController::class, 'create']);
+Route::post('/pho', [PictureController::class, 'store']);
+Route::get('/pho/{picture}', [PictureController::class, 'show']);
+Route::delete('/delete-pho/{id}', [PictureController::class, 'destroy']);
 Route::get('/search', [PictureController::class, 'search']);
 
-Route::get('/categories', [\App\Http\Controllers\CategoriesController::class, 'index']);
-Route::get('/add-category', [\App\Http\Controllers\CategoriesController::class, 'create']);
-Route::post('/add-category', [\App\Http\Controllers\CategoriesController::class, 'store']);
+Route::get('/categories', [CategoriesController::class, 'index']);
 
-Route::get('/profile/{user}', [App\Http\Controllers\IndexController::class, 'index'])->name('index.show');
-Route::get('/profile/me/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
-Route::patch('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+Route::get('/profile/me/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/me', [App\Http\Controllers\IndexController::class, 'me'])->name('index.me');
+Route::get('/profile/{user}', [App\Http\Controllers\IndexController::class, 'index'])->name('index.show');
 
 Route::post('comments', Config::get('comments.controller') . '@store')->name('comments.store');
 Route::delete('comments/{comment}', Config::get('comments.controller') . '@destroy')->name('comments.destroy');

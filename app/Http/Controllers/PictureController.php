@@ -20,11 +20,7 @@ class PictureController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-    public function index()
-    {
-        $picture = Picture::with('categories')->get();
-        return response()->json($picture);
-    }
+
 
     public function create(){
         $categories = Categories::all();
@@ -34,7 +30,6 @@ class PictureController extends Controller
     public function store()
     {
         $data = request()->validate([
-            //'caption' => 'required',
             'description' => 'required',
             'title' => 'required',
             'image' => 'required|image',
@@ -49,7 +44,6 @@ class PictureController extends Controller
 
 
         auth()->user()->picture()->create([
-            //'caption' => $data['caption'],
             'description' => $data['description'],
             'title' => $data['title'],
             'categories_id' => $data['categories_id'],
@@ -59,32 +53,11 @@ class PictureController extends Controller
         return redirect('/profile/' .auth()->user()->id);
     }
 
-    public function show(\App\Models\Picture $picture)
+    public function show(Picture $picture)
     {
         return view('picture.show',compact('picture'));
     }
 
-    public function update(PictureUpdateRequest $request, int $id)
-    {
-        if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new PictureUpdateRequest())->rules());
-            if ($validator->fails()) {
-                $errormsg = "";
-                foreach ($validator->errors()->all() as $error) {
-                    $errormsg .= $error . " ";
-                }
-                $errormsg = trim($errormsg);
-                return response()->json($errormsg, 400);
-            }
-        }
-        $picture = Picture::find($id);
-        if (is_null($picture)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található kép."], 404);
-        }
-        $picture->fill($request->all());
-        $picture->save();
-        return response()->json($picture, 200);
-    }
 
     public function destroy(int $id)
     {

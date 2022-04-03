@@ -31,7 +31,7 @@
                                             <div>
                                                 Description: {{ $user->profile->description ?? ""}}
                                             </div>
-                                            <div>URL: <a href="#">{{ $user->profile->url ?? "" }}</a></div>
+                                            <div><a href="{{$user->profile->url ?? '#'}}">{{ $user->profile->url ?? "" }}</a></div>
                                         </h3>
                                 </div>
                             <div class="col-md-3">
