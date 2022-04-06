@@ -1,11 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+<div class="container">
+
+<div class="row justify-content-center">
+<div class="col-md-12">
+    <div class="card-header">
+        <h2 class="row justify-content-center">{{ $picture->title ?? ""}}</h2>
+    </div>
+    
+    <div class="card-body">
         <div class="row">
+            
             <div class="col-8">
                 <img src="/storage/{{ $picture->image }}" class="w-100" alt="">
             </div>
+
             <div class="col-4">
                 <div>
                     <div class="d-flex align-items-center">
@@ -26,16 +36,19 @@
                     </div>
                     <hr>
 
-                    <h2>Title: {{ $picture->title ?? ""}}</h2>
+                    
                     <h3>Category: {{ $picture->categories->name ?? ""}}</h3>
                     <p>Description: {{ $picture->description ?? ""}}</p>
 
                     <hr>
 
-                <div> @comments(['model' => $picture,'perPage' => 4]) </div>
+                <div class="container comments" style="border-radius: 20px;"> @comments(['model' => $picture,'perPage' => 4]) </div>
 
                 </div>
         </div>
+    </div>
+    </div>
+    </div>
     </div>
     </div>
 @endsection

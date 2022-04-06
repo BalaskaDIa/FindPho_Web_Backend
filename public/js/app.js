@@ -5394,6 +5394,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -28077,39 +28079,39 @@ var render = function () {
           "div",
           { staticClass: "row justify-content-center" },
           _vm._l(_vm.results, function (result) {
-            return _c("div", { key: result.id, staticClass: "col-md-4 pt-3" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "card-header",
-                  staticStyle: {
-                    "background-color": "#183B62",
-                    "text-align": "center",
+            return _c(
+              "div",
+              { key: result.id, staticClass: "col-md-4 pt-3 pic" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "card-body ",
+                    staticStyle: { "background-color": "#235892" },
                   },
-                },
-                [_vm._v(_vm._s(result.title))]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "card-body ",
-                  staticStyle: { "background-color": "#235892" },
-                },
-                [
-                  _c("a", { attrs: { href: "/pho/" + result.id } }, [
-                    _c("img", {
-                      staticClass: "card-img",
-                      attrs: {
-                        height: "170px",
-                        src: "../storage/" + result.image,
-                        alt: "There is some issue with the image. Please try to reload the website.",
-                      },
-                    }),
-                  ]),
-                ]
-              ),
-            ])
+                  [
+                    _c("a", { attrs: { href: "/pho/" + result.id } }, [
+                      _c("img", {
+                        staticClass: "card-img",
+                        attrs: {
+                          height: "170px",
+                          src: "../storage/" + result.image,
+                          alt: "There is some issue with the image. Please try to reload the website.",
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "middle" }, [
+                      _c("a", { attrs: { href: "/pho/" + result.id } }, [
+                        _c("div", { staticClass: "text" }, [
+                          _vm._v(_vm._s(result.title)),
+                        ]),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
           }),
           0
         )

@@ -45,12 +45,12 @@
 
                         </div>
                         <div class="card-body row">
-                            @foreach($user->picture as $picture)
+                            @foreach($pictures as $picture)
                                 <div class="col-4 pb-4 pic">
                                     <a href="/pho/{{ $picture->id }}">
-                                        <img src="/storage/{{ $picture->image }}" class="w-100 image" style="width:100%">
+                                        <img src="/storage/{{ $picture->image }}" class="w-100 image">
                                     </a>
-                                    <div class="middle">
+                                    <div class="middle2">
                                         <a href="/pho/{{ $picture->id }}"><div class="text">{{$picture->title}}</div></a>
                                     </div>
                                     <form action="{{url('/delete-pho/'.$picture->id) }}" method="POST">
@@ -61,9 +61,12 @@
                                             <button class="text2">Delete</button>
                                         </div>
                                     </form>
+                                    
                                 </div>
+                              
                             @endforeach
                         </div>
+                        <p>{{ $pictures->links() }}</p>
                         </div>
                     </div>
                 </div>

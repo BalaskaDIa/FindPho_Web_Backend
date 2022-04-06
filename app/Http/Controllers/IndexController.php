@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Picture;
 use Illuminate\Http\Request;
 use app\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -26,11 +27,11 @@ class IndexController extends Controller
     public function index($user)
     {
         $user = User::find($user);
-        return view('profiles.index', compact('user'));
+        $pictures = $user->picture()->paginate(3);
+        return view('profiles.index', compact('user', 'pictures'));
     }
     public function me(){
-        $user = Auth::user();
-        return view('profiles.index', ['user' => $user]);
+        return $this->index(Auth::user()->id);
     }
 
 }

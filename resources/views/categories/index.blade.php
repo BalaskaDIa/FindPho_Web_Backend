@@ -31,13 +31,19 @@
                 </form>
             @foreach($picture as $pic)
                 @if(!isset($_GET["categories_id"])||$pic->categories_id == $_GET["categories_id"])
-                <div class="col-4 pb-4 pt-5">
+                
+
+                <div class="col-4 pb-4 pt-5 pic">
                     <a href="/pho/{{ $pic->id }}">
-                        <img src="/storage/{{ $pic->image }}" class="w-100">
+                        <img src="/storage/{{ $pic->image }}" class="w-100 image">
                     </a>
+                    <div class="middle">
+                        <a href="/pho/{{ $pic->id }}"><div class="text">{{$pic->title}}</div></a>
+                    </div>
                 </div>
                 @endif
             @endforeach
+            
 
         </div>
     </div>
