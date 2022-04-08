@@ -12,7 +12,7 @@
     <div class="card-body">
         <div class="row">
             
-            <div class="col-8">
+            <div class="col-8 big_img">
                 <img src="/storage/{{ $picture->image }}" class="w-100" alt="">
             </div>
 

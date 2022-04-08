@@ -59,7 +59,7 @@
                                     <input type="file" class="form-control-file" id="image" name="image">
 
                                     @error('image')
-                                        <strong>{{ $message }}</strong>
+                                        <strong style="color: red;">{{ $message }}</strong>
                                     @enderror
                                 </div>
 

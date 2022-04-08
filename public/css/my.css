@@ -1,6 +1,20 @@
-body,html {
+body {
     color: #ffffff;
-    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F360991726377860777%2F&psig=AOvVaw3OksejJmXf76ttFbH4GJIY&ust=1649339878282000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCKCr3_7L__YCFQAAAAAdAAAAABAD');
+    background-color: antiquewhite;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 500px; 
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.big_img{
+    border-radius: 10px;
+    border-color: #000;
+
 }
 
 .card{
