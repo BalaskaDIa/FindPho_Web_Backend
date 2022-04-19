@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
-use App\Models\Comment;
 use App\Models\Picture;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,87 +25,39 @@ class DataController extends Controller
         return response()->json($allusers);
     }
 
-    public function comments() {
-        $comments = Comment::orderBy('comments.created_at')->get()->groupBy(function($data) 
-        {
-            return $data->created_at->format('Y-m-d');
-        });
-        //$comments = Comment::all();
-        return response()->json($comments);
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function janUpload() {
+        $month = 01;
+        $janUpload = Picture::whereMonth('created_at', '=', $month)->count();
+        return response()->json($janUpload);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function febUpload() {
+        $month = 02;
+        $janUpload = Picture::whereMonth('created_at', '=', $month)->count();
+        return response()->json($janUpload);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function marchUpload() {
+        $month = 03;
+        $janUpload = Picture::whereMonth('created_at', '=', $month)->count();
+        return response()->json($janUpload);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function aprUpload() {
+        $month = 04;
+        $janUpload = Picture::whereMonth('created_at', '=', $month)->count();
+        return response()->json($janUpload);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function mayUpload() {
+        $month = 05;
+        $janUpload = Picture::whereMonth('created_at', '=', $month)->count();
+        return response()->json($janUpload);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function junUpload() {
+        $month = 06;
+        $janUpload = Picture::whereMonth('created_at', '=', $month)->count();
+        return response()->json($janUpload);
     }
 }

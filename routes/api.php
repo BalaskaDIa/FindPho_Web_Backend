@@ -34,6 +34,13 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/allusers', [DataController::class, 'allUsers']);
 Route::get('/allphotos', [DataController::class, 'allPhotos']);
 Route::get('/allcategories', [DataController::class, 'allCategories']);
-Route::get('/comments', [DataController::class, 'comments']);
+Route::get('/janupload', [DataController::class, 'janUpload']);
+Route::get('/febupload', [DataController::class, 'febUpload']);
+Route::get('/marchupload', [DataController::class, 'marchUpload']);
+Route::get('/aprupload', [DataController::class, 'aprUpload']);
+Route::get('/mayupload', [DataController::class, 'mayUpload']);
+Route::get('/junupload', [DataController::class, 'junUpload']);
+
+
 
 
