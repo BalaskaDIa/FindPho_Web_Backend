@@ -5,11 +5,10 @@
 @endphp
 
 <div id="comment-{{ $comment->getKey() }}" class="media">
-        <a href="/profile/{{$picture->user->id}}">
-            <img src="/storage/{{ $picture->user->profile->image}}" class="rounded circle w-100" style="max-width:50px" alt="">
-        </a>
     <div class="media-body">
-        <h5 class="mt-0 mb-1">{{ $comment->commenter->username ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
+    
+        <h5 class="mt-0 mb-1"><a href="/profile/{{$picture->user->id}}">{{ $comment->commenter->username ?? $comment->guest_name }}</a><small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
+        
         <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
 
         <div>

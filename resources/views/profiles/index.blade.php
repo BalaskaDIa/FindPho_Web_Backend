@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-12 col-md-10 col-xl-10">
                     <div class="card-header">
                         <div class="row pb-5">
 
@@ -50,20 +50,27 @@
                                     <a href="/pho/{{ $picture->id }}">
                                         <img src="/storage/{{ $picture->image }}" class="w-100 image">
                                     </a>
-                                    <div class="middle2">
-                                        <a href="/pho/{{ $picture->id }}"><div class="text">{{$picture->title}}</div></a>
+                                    <div class="middle">
+                                        <a href="/pho/{{ $picture->id }}"><button class="text">{{$picture->title}}</button></a>
                                     </div>
+                                    @can('update',$user->profile)
+                                            <div class="top">
+                                                <a href="/pho/{{ $picture->id }}/edit"><button class="text3">Change details</button></a>
+                                            </div>
+                                    @endcan
+                                    @can('update',$user->profile)
                                     <form action="{{url('/delete-pho/'.$picture->id) }}" method="POST">
                                         {{ method_field('DELETE') }}
                                         {{ csrf_field() }}
 
-                                        <div class="top">
-                                            <button class="text2">Delete</button>
+                                        <div class="middle2">
+                                            <button onclick="return confirm('Are you sure about deleting this photo?')" class="text2">Delete</button>
                                         </div>
                                     </form>
-                                    
+                                    @endcan
+
                                 </div>
-                              
+
                             @endforeach
                         </div>
                         <p>{{ $pictures->links() }}</p>

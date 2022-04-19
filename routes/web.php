@@ -27,6 +27,9 @@ Route::get('/pho/{picture}', [PictureController::class, 'show']);
 Route::delete('/delete-pho/{id}', [PictureController::class, 'destroy']);
 Route::get('/search', [PictureController::class, 'search']);
 
+Route::get('/pho/{picture}/edit', [PictureController::class, 'edit'])->name('pho.edit');
+Route::patch('/pho-update/{picture}', [PictureController::class, 'update'])->name('pho.update');
+
 Route::get('/categories', [CategoriesController::class, 'index']);
 
 Route::get('/profile/me/edit', [ProfileController::class, 'edit'])->name('profile.edit');

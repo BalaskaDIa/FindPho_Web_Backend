@@ -4,14 +4,14 @@
 <div class="container">
 
 <div class="row justify-content-center">
-<div class="col-md-12">
+<div class="col-12 col-xl-10">
     <div class="card-header">
         <h2 class="row justify-content-center">{{ $picture->title ?? ""}}</h2>
     </div>
-    
+
     <div class="card-body">
         <div class="row">
-            
+
             <div class="col-8 big_img">
                 <img src="/storage/{{ $picture->image }}" class="w-100" alt="">
             </div>
@@ -36,7 +36,7 @@
                     </div>
                     <hr>
 
-                    
+
                     <h3>Category: {{ $picture->categories->name ?? ""}}</h3>
                     <p>Description: {{ $picture->description ?? ""}}</p>
 

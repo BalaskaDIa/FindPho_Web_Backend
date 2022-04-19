@@ -3,7 +3,7 @@ body {
     background-color: antiquewhite;
     background-repeat: no-repeat;
     background-size: 100%;
-    min-height: 500px; 
+    min-height: 500px;
 
   background-attachment: fixed;
   background-position: center;
@@ -25,17 +25,17 @@ body {
 
 }
 .card-header {
-    padding: 2rem 2rem;
+    padding: 0.5rem 0.5rem;
     margin-bottom: 0;
     background-color: #235892;
     border-radius: 2rem;
-    border: 20px solid rgba(0, 0, 0, 0.125);
+    border: 5px solid rgba(0, 0, 0, 0.125);
 }
 .card-body {
     flex: 1 1 auto;
-    padding: 1rem 1rem;
+    padding: 0.5rem 0.5rem;
     background-color: #73A3EF;
-    border: 5px solid rgba(0, 0, 0, 0.125);
+    border: 3px solid rgba(0, 0, 0, 0.125);
 }
 .navbar{
     background-color: #183B62;
@@ -56,7 +56,7 @@ footer{
     display: block;
     width: 100%;
     height: auto;
-    transition: .5s ease;
+    transition: 1s ease;
     backface-visibility: hidden;
 }
 
@@ -105,14 +105,22 @@ footer{
 }
 
 .text {
-    background-color: #216796;
-    color: white;
+    background-color: #ffffff;
+    color: black;
     font-size: 16px;
     padding: 5px 20px;
     border-radius: 10%;
 }
 .text2 {
     background-color: #ff0000;
+    color: white;
+    font-size: 16px;
+    padding: 5px 20px;
+    border-radius: 10%;
+
+}
+.text3 {
+    background-color: #6bd90f;
     color: white;
     font-size: 16px;
     padding: 5px 20px;

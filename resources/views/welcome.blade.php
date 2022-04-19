@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
 
-            <div class="col-md-8">
+            <div class="col-12 col-md-10 col-xl-8">
                     <h2 class="card-header row justify-content-center">Search for wonderful photos in our website!</h2>
 
                     <div class="card-body row pt-5">

@@ -38,6 +38,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/categories">Categories</a>
                     </li>
 
@@ -111,8 +114,8 @@
         <div>
             <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         </div>
-        <div class="fixed-bottom">
-            © 2022 FindPho. All Rights Reserved.
+        <div class="fixed-bottom" style="color: black">
+            © 2022 FindPho. All Rights <strong>not</strong> Reserved.
         </div>
 
     </div>

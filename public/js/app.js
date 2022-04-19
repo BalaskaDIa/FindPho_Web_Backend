@@ -28103,7 +28103,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "middle" }, [
                       _c("a", { attrs: { href: "/pho/" + result.id } }, [
-                        _c("div", { staticClass: "text" }, [
+                        _c("button", { staticClass: "text" }, [
                           _vm._v(_vm._s(result.title)),
                         ]),
                       ]),

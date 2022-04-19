@@ -8,7 +8,7 @@
                         <img class="card-img" height="170px" :src="`../storage/${result.image}`" alt="There is some issue with the image. Please try to reload the website." />
                     </a>
                     <div class="middle">
-                        <a :href="`/pho/${result.id}`"><div class="text">{{result.title}}</div></a>
+                        <a :href="`/pho/${result.id}`"><button class="text">{{result.title}}</button></a>
                     </div>
                 </div>
         </div>

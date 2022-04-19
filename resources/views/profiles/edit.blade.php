@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
 
-            <div class="col-md-6">
+            <div class="col-10 col-md-8 col-xl-6">
                         <form action="/profile/{{$user->id}}" enctype="multipart/form-data" method="post">
                             @csrf
                             @method('PATCH')
@@ -24,7 +24,7 @@
                                         <input id="title"
                                                type="text"
                                                name="title"
-                                               class="form-control @error('title') is-invalid @enderror"
+                                               class="card-text form-control @error('title') is-invalid @enderror"
                                                value="{{ old('title') ?? $user->profile->title ?? ""}}" required autocomplete="title" autofocus>
 
                                         @error('title')
@@ -40,7 +40,7 @@
                                         <input id="description"
                                                type="text"
                                                name="description"
-                                               class="form-control @error('description') is-invalid @enderror"
+                                               class="card-text form-control @error('description') is-invalid @enderror"
                                                value="{{ old('description') ?? $user->profile->description ?? ""}}" required autocomplete="description" autofocus>
 
                                         @error('description')
@@ -56,7 +56,7 @@
                                         <input id="url"
                                                type="text"
                                                name="url"
-                                               class="form-control @error('url') is-invalid @enderror"
+                                               class="card-text form-control @error('url') is-invalid @enderror"
                                                value="{{ old('url') ?? $user->profile->url ?? ""}}" required autocomplete="url" autofocus>
 
                                         @error('url')

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PictureUpdateRequest;
 use App\Models\Categories;
 use App\Models\Picture;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use function auth;
@@ -25,6 +27,24 @@ class PictureController extends Controller
     public function create(){
         $categories = Categories::all();
         return view('picture.create',compact('categories'));
+    }
+    public function edit(Picture $picture)
+    {
+        $categories = Categories::all();
+        return view('picture.edit', compact('picture','categories'));
+    }
+    public function update(Picture $picture){
+        $data = request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'categories' => ''
+        ]);
+
+        auth()->user()->picture()->update(array_merge(
+            $data
+        ));
+
+        return redirect("/pho/{$picture->id}"); // or me
     }
 
     public function store()
@@ -55,7 +75,8 @@ class PictureController extends Controller
 
     public function show(Picture $picture)
     {
-        return view('picture.show',compact('picture'));
+        $user = Auth::user();
+        return view('picture.show',compact('picture','user'));
     }
 
 
