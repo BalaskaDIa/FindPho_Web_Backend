@@ -24,12 +24,12 @@ php artisan migrate
 
 To Start our wonderful project:---------------------------------------------------
 
-composer install
+composer install 
 
-php artisan key:generate --ansi
+php artisan migrate 
 
-php artisan migrate
+php artisan storage:link 
 
-php artisan storage:link
+php artisan key:generate –ansi 
 
-php artisan serve
+php artisan serve 

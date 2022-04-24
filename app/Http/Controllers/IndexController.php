@@ -27,7 +27,7 @@ class IndexController extends Controller
     public function index($user)
     {
         $user = User::find($user);
-        $pictures = $user->picture()->paginate(3);
+        $pictures = $user->picture()->paginate(9);
         return view('profiles.index', compact('user', 'pictures'));
     }
     public function me(){

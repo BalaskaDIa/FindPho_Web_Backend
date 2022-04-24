@@ -20,10 +20,10 @@ class ProfileController extends Controller
     }
     public function update(User $user){
         $data = request()->validate([
-                'title' => 'required',
-                'description' => 'required',
-                'url' => 'url',
-                'image' => '',
+                'title' => 'required|max:50',
+                'description' => 'required|max:255',
+                'url' => 'url|max:255',
+                'image' => 'image',
             ]);
 
 
@@ -41,7 +41,7 @@ class ProfileController extends Controller
             $imageArray ?? []
         ));
 
-        return redirect("/profile/{$user->id}"); // or me
+        return redirect("/profile/{$user->id}");
     }
 
 

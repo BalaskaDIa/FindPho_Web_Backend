@@ -33,7 +33,7 @@
                 @if(!isset($_GET["categories_id"])||$pic->categories_id == $_GET["categories_id"])
 
 
-                <div class="col-4 pb-4 pt-5 pic">
+                <div class="col-12 col-md-6 col-xl-4 pb-4 pt-5 pic">
                     <a href="/pho/{{ $pic->id }}">
                         <img src="/storage/{{ $pic->image }}" class="w-100 image">
                     </a>

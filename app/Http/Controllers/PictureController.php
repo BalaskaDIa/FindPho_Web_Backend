@@ -35,23 +35,23 @@ class PictureController extends Controller
     }
     public function update(Picture $picture){
         $data = request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'categories' => ''
+            'title' => 'required|string|max:50',
+            'description' => 'required|string|max:255',
+            'categories_id' => 'required'
         ]);
 
-        auth()->user()->picture()->update(array_merge(
+        $picture->update(array_merge(
             $data
         ));
 
-        return redirect("/pho/{$picture->id}"); // or me
+        return redirect("/pho/{$picture->id}");
     }
 
     public function store()
     {
         $data = request()->validate([
-            'description' => 'required',
-            'title' => 'required',
+            'description' => 'required|string|max:255',
+            'title' => 'required|string|max:50',
             'image' => 'required|image',
             'categories_id' => 'required'
 
@@ -59,7 +59,7 @@ class PictureController extends Controller
 
         $imagePath = request('image')->store('uploads','public');
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200); //Gotta adjust that later
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
         $image->save();
 
 
@@ -88,10 +88,5 @@ class PictureController extends Controller
         }
         Picture::destroy($id);
         return redirect()->back();
-    }
-
-    public function search(Request $request){
-        $pics=Picture::where('title','LIKE','%'.$request->keywords.'%')->get();
-        return response()->json($pics);
     }
 }

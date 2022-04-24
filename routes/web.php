@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::get('/pho/create', [PictureController::class, 'create']);
 Route::post('/pho', [PictureController::class, 'store']);
 Route::get('/pho/{picture}', [PictureController::class, 'show']);
 Route::delete('/delete-pho/{id}', [PictureController::class, 'destroy']);
-Route::get('/search', [PictureController::class, 'search']);
+Route::get('/search', [SearchController::class, 'search']);
 
 Route::get('/pho/{picture}/edit', [PictureController::class, 'edit'])->name('pho.edit');
 Route::patch('/pho-update/{picture}', [PictureController::class, 'update'])->name('pho.update');

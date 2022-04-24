@@ -22,7 +22,7 @@
                                            type="text"
                                            name="title"
                                            class="card-text form-control @error('title') is-invalid @enderror mb-3 mt-3"
-                                           value="{{ old('title') ?? $picture->title ?? ""}}" required autocomplete="title" autofocus>
+                                           value="{{ old('title') ?? $picture->title ?? '' }}" required autocomplete="title" autofocus>
 
                                     @error('title')
                                     <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                                            type="text"
                                            name="description"
                                            class="card-text form-control @error('description') is-invalid @enderror mb-3 mt-3"
-                                           value="{{ old('description') ?? $picture->description ?? ""}}" required autocomplete="description" autofocus>
+                                           value="{{ old('description') ?? $picture->description ?? ''}}" required autocomplete="description" autofocus>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">

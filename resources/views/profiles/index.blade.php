@@ -46,7 +46,7 @@
                         </div>
                         <div class="card-body row">
                             @foreach($pictures as $picture)
-                                <div class="col-4 pb-4 pic">
+                                <div class="col-12 col-md-6 col-xl-4 pb-4 pic">
                                     <a href="/pho/{{ $picture->id }}">
                                         <img src="/storage/{{ $picture->image }}" class="w-100 image">
                                     </a>
