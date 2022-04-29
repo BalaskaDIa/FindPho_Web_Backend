@@ -1,35 +1,25 @@
-To Work in our wonderful project:
+Ebben a repositoryban a FindPho Backend, illetve webes frontend része található meg.
 
-npm install
+FindPho egy web, asztali és mobil kliensre kódolt képmegosztó alkalmazás.
 
-composer install
 
-php artisan key:generate --ansi
+Futtatáshoz szükséges lépések:
 
-php artisan storage:link
+- XAMPP-on belül Apache, MySQL elindítása
+- http://localhost/phpmyadmin/ oldalon létrehozni egy findpho nevű adatbázist
+- VSCode elindítása
+- Terminál megnyitása
+- git clone https://github.com/BalaskaDIa/FindPho_Web_Backend.git
+- composer install
+- php artisan key:generate
+- php artisan storage:link
+- php artisan migrate
+- php artisan db:seed
+- php artisan serve
 
-php artisan serve //then leave that alone
+Backendet készítette:
+- Balaska Klaudia
+- Wolf Péter
+- Zsálek Norbert
 
-npm run watch //then leave that alone
-
-composer require laravel/ui
-
-php artisan ui vue --auth
-
-npm run dev  //twice
-
-composer require laravelista/comments
-
-php artisan migrate
-
-To Start our wonderful project:---------------------------------------------------
-
-composer install 
-
-php artisan migrate 
-
-php artisan storage:link 
-
-php artisan key:generate –ansi 
-
-php artisan serve 
+Webes felületet készítette Zsálek Norbert.
