@@ -23,9 +23,9 @@ class PictureFactory extends Factory
         return [
             'user_id' => $this->faker->randomElement($user),
             'categories_id' => $this->faker->randomElement($categories),
-            'title' => $this->faker->realText(10),
+            'title' => $this->faker->realText(7),
             'description' => $this->faker->realText(50),
-            'image' => $this->faker->image('public/storage/uploads',640,480, null, false)
+            //'image' => $this->faker->image('public/storage/uploads',640,480, null, false)
         ];
     }
 }
