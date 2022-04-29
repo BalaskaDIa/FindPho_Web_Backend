@@ -17,6 +17,8 @@ Futtatáshoz szükséges lépések:
 - php artisan db:seed
 - php artisan serve
 
+A weboldal megjelenítéséhez a böngészőben a következő címen érhető el: http://127.0.0.1:8000.
+
 Backendet készítette:
 - Balaska Klaudia
 - Wolf Péter
