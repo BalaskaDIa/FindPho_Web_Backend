@@ -40,6 +40,17 @@ Route::get('/marchupload', [DataController::class, 'marchUpload']);
 Route::get('/aprupload', [DataController::class, 'aprUpload']);
 Route::get('/mayupload', [DataController::class, 'mayUpload']);
 Route::get('/junupload', [DataController::class, 'junUpload']);
+Route::get('/categoryFlowers', [DataController::class, 'categoryFlowers']);
+Route::get('/categoryCars', [DataController::class, 'categoryCars']);
+Route::get('/categoryEyes', [DataController::class, 'categoryEyes']);
+Route::get('/categoryDogs', [DataController::class, 'categoryDogs']);
+Route::get('/categoryFood', [DataController::class, 'categoryFood']);
+Route::get('/categorySpring', [DataController::class, 'categorySpring']);
+Route::get('/categoryNature', [DataController::class, 'categoryNature']);
+Route::get('/categoryOthers', [DataController::class, 'categoryOthers']);
+Route::get('/categoryPeople', [DataController::class, 'categoryPeople']);
+Route::get('/categoryWinter', [DataController::class, 'categoryWinter']);
+
 
 
 
