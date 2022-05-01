@@ -1,9 +1,10 @@
+# FindPho Web
 Ebben a repositoryban a FindPho Backend, illetve webes frontend része található meg.
 
 FindPho egy web, asztali és mobil kliensre kódolt képmegosztó alkalmazás.
 
 
-Futtatáshoz szükséges lépések:
+# Futtatáshoz szükséges lépések:
 
 - XAMPP-on belül Apache, MySQL elindítása
 - http://localhost/phpmyadmin/ oldalon létrehozni egy findpho nevű adatbázist
@@ -19,9 +20,9 @@ Futtatáshoz szükséges lépések:
 
 A weboldal megjelenítéséhez a böngészőben a következő címen érhető el: http://127.0.0.1:8000.
 
-Backendet készítette:
+# Backendet készítette:
 - Balaska Klaudia
 - Wolf Péter
 - Zsálek Norbert
 
-Webes felületet készítette Zsálek Norbert.
+Webes felületet készítette **Zsálek Norbert**.
